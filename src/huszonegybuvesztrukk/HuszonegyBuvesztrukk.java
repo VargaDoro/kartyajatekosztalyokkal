@@ -1,8 +1,21 @@
 package huszonegybuvesztrukk;
 
+import java.util.Scanner;
+
 public class HuszonegyBuvesztrukk {
 
     static String[] pakli = new String[21];
+    static Scanner sc = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        indit();
+    }
+
+    private static void indit() {
+        feltolt();
+        kirak();
+        beker();
+    }
 
     public static void feltolt() {
         String[] szinek = {"P", "T", "Z", "M"};
@@ -31,8 +44,26 @@ public class HuszonegyBuvesztrukk {
         }
     }
 
-    public static void main(String[] args) {
-        feltolt();
-        kirak();
+    private static int beker() {
+        boolean jo;
+        int oszlopSzam;
+        do {
+            System.out.printf("Melyik oszlopban (1-3): ");
+            oszlopSzam = sc.nextInt();
+            jo = oszlopSzam >= 1 && oszlopSzam <= 3;
+        } while (!jo);
+        return oszlopSzam;
     }
+
+    private static void kever(int oszlop) {
+        switch (oszlop) {
+            case 1:
+                break;
+        }
+    }
+
+    private static void melyikVolt() {
+        
+    }
+
 }
