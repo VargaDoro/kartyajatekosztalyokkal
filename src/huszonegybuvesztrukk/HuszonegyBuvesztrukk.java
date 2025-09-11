@@ -6,6 +6,7 @@ public class HuszonegyBuvesztrukk {
 
     static String[] pakli = new String[21];
     static Scanner sc = new Scanner(System.in);
+    private static int oszlopSzam;
 
     public static void main(String[] args) {
         indit();
@@ -46,24 +47,33 @@ public class HuszonegyBuvesztrukk {
 
     private static int beker() {
         boolean jo;
-        int oszlopSzam;
+        
         do {
             System.out.printf("Melyik oszlopban (1-3): ");
             oszlopSzam = sc.nextInt();
             jo = oszlopSzam >= 1 && oszlopSzam <= 3;
         } while (!jo);
-        return oszlopSzam;
     }
 
-    private static void kever(int oszlop) {
-        switch (oszlop) {
+    private static void kever() {
+        String[] ujPakli = new String[21];
+        switch (oszlopSzam) {
             case 1:
+                for (int i = 1; i < 7; i++) {
+                    ujPakli[i] = pakli[20 - (i - 1) * 3];
+                    ujPakli[i + 7] = pakli[19 - (i - 1) * 3];
+                    ujPakli[i + 14] = pakli[21 - (i - 1) * 3];
+                }
+                break;
+            case 2:
+                break;
+            case 3:
                 break;
         }
     }
 
     private static void melyikVolt() {
-        
+
     }
 
 }
