@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class HuszonegyBuvesztrukk {
 
-    static String[] pakli = new String[21];
+    static String[] pakli = new String[22];
     static Scanner sc = new Scanner(System.in);
     private static int oszlopSzam;
 
@@ -24,12 +24,15 @@ public class HuszonegyBuvesztrukk {
     }
 
     public static void feltolt() {
+        String[] ertekek = {"Asz", "Kir", "Fel", "X", "IX", "VIII"};
         String[] szinek = {"P", "T", "Z", "M"};
-        String[] ertek = {"Ász", "kir", "Fel", "X", "IX", "VIII"};
+        
         int index = 0;
-        for (int i = 0; i < szinek.length && index < pakli.length; i++) {
-            for (int j = 0; j < ertek.length && index < pakli.length; j++) {
-                pakli[index] = szinek[i] + "_" + ertek[j];
+        for (int j = 0; j < ertekek.length && index < pakli.length; j++)
+        {
+            for (int k = 0; k < szinek.length && index < pakli.length; k++)
+            {
+                pakli[index] = "%s_%s".formatted(szinek[k], ertekek[j]); 
                 index++;
             }
         }
@@ -53,7 +56,7 @@ public class HuszonegyBuvesztrukk {
     private static void beker() {
         boolean jo;
         do {
-            System.out.printf("Melyik oszlopban (1-3): ");
+            System.out.printf("\nMelyik oszlopban (1-3) van? : ");
             oszlopSzam = sc.nextInt();
             jo = oszlopSzam >= 1 && oszlopSzam <= 3;
         } while (!jo);
@@ -61,32 +64,34 @@ public class HuszonegyBuvesztrukk {
 
     private static void kever() 
     {
-        String[] ujPakli = new String[21];
+        String[] ujPakli = new String[22];
         switch (oszlopSzam) 
         {
             case 1:
-                for (int i = 1; i < 7; i++) 
+                for (int i = 1; i <= 7; i++) 
                 {
-                    ujPakli[i] = pakli[19-(i-1)*3];
-                    ujPakli[i+7] = pakli[20-(i-1)*3];
-                    ujPakli[i+14] = pakli[21-(i-1)*3];
-                }
-                break;
-            case 2:
-                for (int i = 1; i < 7; i++) {
                     ujPakli[i] = pakli[20 - (i - 1) * 3];
                     ujPakli[i + 7] = pakli[19 - (i - 1) * 3];
                     ujPakli[i + 14] = pakli[21 - (i - 1) * 3];
                 }
                 break;
+            case 2:
+                for (int i = 1; i <= 7; i++) {
+                    
+                    ujPakli[i] = pakli[19 - (i - 1) * 3];
+                    ujPakli[i + 7] = pakli[20 - (i - 1) * 3];
+                    ujPakli[i + 14] = pakli[21 - (i - 1) * 3];
+                }
+                break;
             case 3:
-                for (int i = 1; i < 7; i++) {
+                for (int i = 1; i <= 7; i++) {
                     ujPakli[i] = pakli[19 - (i - 1) * 3];
                     ujPakli[i + 7] = pakli[21 - (i - 1) * 3];
                     ujPakli[i + 14] = pakli[20 - (i - 1) * 3];
                 }
                 break;
         }
+        pakli = ujPakli;
     }
 
     private static void melyikVolt() 
