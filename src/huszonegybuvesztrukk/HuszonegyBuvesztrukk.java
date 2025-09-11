@@ -62,7 +62,6 @@ public class HuszonegyBuvesztrukk {
     private static void kever() 
     {
         String[] ujPakli = new String[21];
-        //System.out.println("aasd");
         switch (oszlopSzam) 
         {
             case 1:
@@ -81,10 +80,13 @@ public class HuszonegyBuvesztrukk {
                 }
                 break;
             case 3:
-                
+                for (int i = 1; i < 7; i++) {
+                    ujPakli[i] = pakli[19 - (i - 1) * 3];
+                    ujPakli[i + 7] = pakli[21 - (i - 1) * 3];
+                    ujPakli[i + 14] = pakli[20 - (i - 1) * 3];
+                }
                 break;
         }
-        pakli = ujPakli;
     }
 
     private static void melyikVolt() 
