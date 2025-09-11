@@ -14,8 +14,13 @@ public class HuszonegyBuvesztrukk {
 
     private static void indit() {
         feltolt();
-        kirak();
-        beker();
+        for (int i = 0; i < 3; i++) 
+        {
+            kirak();
+            beker();
+            kever();
+        }
+        melyikVolt();
     }
 
     public static void feltolt() {
@@ -57,6 +62,7 @@ public class HuszonegyBuvesztrukk {
     private static void kever() 
     {
         String[] ujPakli = new String[21];
+        //System.out.println("aasd");
         switch (oszlopSzam) 
         {
             case 1:
@@ -75,12 +81,15 @@ public class HuszonegyBuvesztrukk {
                 }
                 break;
             case 3:
+                
                 break;
         }
+        pakli = ujPakli;
     }
 
-    private static void melyikVolt() {
-
+    private static void melyikVolt() 
+    {
+        System.out.println("A választott kártya a(z) %s volt!".formatted(pakli[10]));
     }
 
 }
