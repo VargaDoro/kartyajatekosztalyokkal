@@ -39,7 +39,7 @@ public class Pakli
     {
         for (int i = 1; i < pakli.length; i++) 
         {
-            System.out.print("%-17s".formatted(pakli[i].getLeiras()));
+            System.out.print("%-25s".formatted(pakli[i].getLeiras()));
             if (i % 3 == 0) 
             {
                 System.out.println("");
