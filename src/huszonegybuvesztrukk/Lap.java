@@ -3,7 +3,7 @@ package huszonegybuvesztrukk;
 
 public class Lap 
 {
-    private String leiras;
+    private final String leiras;
 
     public Lap(String leiras) 
     {

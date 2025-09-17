@@ -7,6 +7,12 @@ public class KartyaTrukk
     private static Scanner sc = new Scanner(System.in);
     private Pakli pakli;
     
+    public KartyaTrukk() 
+    {
+        pakli = new Pakli();
+    }
+    
+    
     public void indit() 
     {
         this.pakli.feltolt();

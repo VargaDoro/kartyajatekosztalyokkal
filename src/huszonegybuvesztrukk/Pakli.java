@@ -22,8 +22,8 @@ public class Pakli
     public void feltolt() 
     {
         String[] ertekek = {"Asz", "Kir", "Fel", "X", "IX", "VIII"};
-        String[] szinek = {"P", "T", "Z", "M"};
-        //pakli[0] = "";
+        String[] szinek = {"\033[31;1mP\033[0m", "\033[33mT\033[0m", "\033[32;1mZ\033[0m", "\033[39;1mM\033[0m"};
+        pakli[0] = new Lap("");
         int index = 1;
         for (int j = 0; j < ertekek.length && index < pakli.length; j++) 
         {
@@ -39,10 +39,10 @@ public class Pakli
     {
         for (int i = 1; i < pakli.length; i++) 
         {
-            System.out.print("%-8s".formatted(pakli[i]));
+            System.out.print("%-17s".formatted(pakli[i].getLeiras()));
             if (i % 3 == 0) 
             {
-                System.out.println();
+                System.out.println("");
             }
         }
     }
