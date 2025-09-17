@@ -1,5 +1,6 @@
-package huszonegybuvesztrukk;
+package modell;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Pakli 
@@ -37,14 +38,19 @@ public class Pakli
     
     public void kirak() 
     {
+        String s = "";
         for (int i = 1; i < pakli.length; i++) 
         {
-            System.out.print("%-25s".formatted(pakli[i].getLeiras()));
+            s += String.format("%-25s".formatted(pakli[i].getLeiras()));
             if (i % 3 == 0) 
             {
-                System.out.println("");
+                s += System.lineSeparator();
             }
         }
+    }
+    
+    public Lap[] getLapok(){
+        return Arrays.copyOf(pakli, pakli.length);
     }
     
     public void kever(int oszlopSzam) 

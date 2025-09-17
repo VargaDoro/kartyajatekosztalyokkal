@@ -1,5 +1,7 @@
 
-package huszonegybuvesztrukk;
+package main;
+
+import nezet.KartyaTrukk;
 
 public class main 
 {

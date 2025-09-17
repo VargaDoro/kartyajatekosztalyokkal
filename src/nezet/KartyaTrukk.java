@@ -1,5 +1,6 @@
-package huszonegybuvesztrukk;
+package nezet;
 
+import modell.Pakli;
 import java.util.Scanner;
 
 public class KartyaTrukk 
