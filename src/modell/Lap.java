@@ -1,17 +1,14 @@
 package modell;
 
 
-public class Lap 
-{
+public class Lap{
     private final String leiras;
 
-    public Lap(String leiras) 
-    {
+    public Lap(String leiras){
         this.leiras = leiras;
     }
 
-    public String getLeiras() 
-    {
+    public String getLeiras(){
         return leiras;
     }
     

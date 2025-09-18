@@ -5,33 +5,30 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
-public class KartyaTrukk_JOP 
-{
+public class KartyaTrukk_JOP{
     private static Scanner sc = new Scanner(System.in);
     private static final String SEP = System.lineSeparator();
     private Pakli pakli;
+    private static JTextArea textArea;
     
     public KartyaTrukk_JOP(){
         pakli = new Pakli();
         indit();
     }
     
-    
     public void indit(){
         this.pakli.feltolt();
-        
-        for (int i = 0; i <= 3; i++) 
-        {
+        for (int i = 0; i <= 3; i++){
             String o = oszlopok();
             String s = pakli.kirak();
-            felugrobaIr(o+SEP+s+SEP);
-            int oszlop = melyik();
-            pakli.kever(oszlop);
+            String kerdes = "Melyik oszlopban van?(1-3): ";
+            formaz(o+SEP+s+SEP+kerdes+SEP);
+            String vo = felugrobanKerdez();
+            pakli.kever(Integer.parseInt(vo));
         }
-        felugrobaIr("A választott lap: ");
-        felugrobaIr(pakli.ezVolt().getLeiras());
-        felugrobaIr(SEP);
-        
+        String v = "A választott lap: ";
+        String lap = pakli.ezVolt().getLeiras();
+        felugrobaIr(v+lap+SEP);
     }  
 
     private int melyik(){
@@ -46,14 +43,20 @@ public class KartyaTrukk_JOP
         return oszlopSzam;
     }
 
-    private void felugrobaIr(String msg){
-        JTextArea textArea = new JTextArea(msg);
+    private void formaz(String msg){
+        textArea = new JTextArea(msg);
         textArea.setFont(new java.awt.Font("Monospaced", java.awt.Font.PLAIN, 12));
         textArea.setEditable(false);
         textArea.setBackground(null);
         textArea.setBorder(null);
-        
-        JOptionPane.showMessageDialog(null, textArea, "Melyik oszlopban van?", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    private String felugrobanKerdez(){
+        return JOptionPane.showInputDialog(null, textArea, "Válassz oszlopot!", JOptionPane.QUESTION_MESSAGE);
+    }
+    
+    private void felugrobaIr(String msg){
+        JOptionPane.showMessageDialog(null, msg, "Melyik oszlopban van?", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private String oszlopok(){

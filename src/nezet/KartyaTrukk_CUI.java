@@ -18,8 +18,7 @@ public class KartyaTrukk_CUI
     public void indit(){
         this.pakli.feltolt();
         
-        for (int i = 0; i < 3; i++) 
-        {
+        for (int i = 0; i < 3; i++){
             String s = pakli.kirak();
             konzolraIr(s+SEP);
             int oszlop = melyik();
