@@ -23,7 +23,7 @@ public class Pakli
     public void feltolt() 
     {
         String[] ertekek = {"Asz", "Kir", "Fel", "X", "IX", "VIII"};
-        String[] szinek = {"\033[31;1mP\033[0m", "\033[33mT\033[0m", "\033[32;1mZ\033[0m", "\033[39;1mM\033[0m"};
+        String[] szinek = {"P", "T", "Z", "M"};
         pakli[0] = new Lap("");
         int index = 1;
         for (int j = 0; j < ertekek.length && index < pakli.length; j++) 
@@ -48,10 +48,6 @@ public class Pakli
             }
         }
         return s;
-    }
-    
-    public Lap[] getLapok(){
-        return Arrays.copyOf(pakli, pakli.length);
     }
     
     public void kever(int oszlopSzam) 

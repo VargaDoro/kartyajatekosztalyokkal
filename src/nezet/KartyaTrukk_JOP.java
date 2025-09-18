@@ -3,6 +3,7 @@ package nezet;
 import modell.Pakli;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 
 public class KartyaTrukk_JOP 
 {
@@ -19,14 +20,14 @@ public class KartyaTrukk_JOP
     public void indit(){
         this.pakli.feltolt();
         
-        for (int i = 0; i < 3; i++) 
+        for (int i = 0; i <= 3; i++) 
         {
+            String o = oszlopok();
             String s = pakli.kirak();
-            felugrobaIr(s+SEP);
+            felugrobaIr(o+SEP+s+SEP);
             int oszlop = melyik();
-            this.pakli.kever(oszlop);
+            pakli.kever(oszlop);
         }
-        melyikVolt();
         felugrobaIr("A választott lap: ");
         felugrobaIr(pakli.ezVolt().getLeiras());
         felugrobaIr(SEP);
@@ -37,23 +38,30 @@ public class KartyaTrukk_JOP
         int oszlopSzam;
         boolean jo;
         do {
-            System.out.printf("\nMelyik oszlopban (1-3) van? : ");
-            oszlopSzam = sc.nextInt();
+            //felugrobaIr("\nMelyik oszlopban (1-3) van? : ");
+            String s = JOptionPane.showInputDialog("\nMelyik oszlopban (1-3) van?: ");
+            oszlopSzam = Integer.parseInt(s);
             jo = oszlopSzam >= 1 && oszlopSzam <= 3;
         } while (!jo);
         return oszlopSzam;
     }
 
     private void felugrobaIr(String msg){
-        JOptionPane.showMessageDialog(null, msg);
+        JTextArea textArea = new JTextArea(msg);
+        textArea.setFont(new java.awt.Font("Monospaced", java.awt.Font.PLAIN, 12));
+        textArea.setEditable(false);
+        textArea.setBackground(null);
+        textArea.setBorder(null);
+        
+        JOptionPane.showMessageDialog(null, textArea, "Melyik oszlopban van?", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    private void oszlopok(){
+    private String oszlopok(){
         String s = "";
-        for (int i = 0; i <= 3; i++) {
+        for (int i = 1; i <= 3; i++) {
             s += String.format("%-7s", i+".");
         }
-        felugrobaIr(s+SEP);
+        return s+SEP;
     }
     
     private void melyikVolt(){
