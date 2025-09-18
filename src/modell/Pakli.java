@@ -36,7 +36,7 @@ public class Pakli
         }
     }    
     
-    public void kirak() 
+    public String kirak() 
     {
         String s = "";
         for (int i = 1; i < pakli.length; i++) 
@@ -47,6 +47,7 @@ public class Pakli
                 s += System.lineSeparator();
             }
         }
+        return s;
     }
     
     public Lap[] getLapok(){
@@ -84,5 +85,9 @@ public class Pakli
                 break;
         }
         pakli = ujPakli;
-    }    
+    }
+
+    public Lap ezVolt(){
+        return pakli[11];
+    }
 }
